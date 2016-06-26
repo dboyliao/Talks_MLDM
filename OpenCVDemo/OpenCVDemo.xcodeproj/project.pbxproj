@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B3BD33750E416AD9D512C53B /* libPods-OpenCVDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE479FF8E10EE94DC61EC58C /* libPods-OpenCVDemo.a */; };
+		C77ED9291D1F934D001E149F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED9281D1F934D001E149F /* AppDelegate.swift */; };
+		C77ED92B1D1F934E001E149F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED92A1D1F934E001E149F /* ViewController.swift */; };
+		C77ED92E1D1F934E001E149F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77ED92C1D1F934E001E149F /* Main.storyboard */; };
+		C77ED9301D1F934E001E149F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77ED92F1D1F934E001E149F /* Assets.xcassets */; };
+		C77ED9331D1F934E001E149F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77ED9311D1F934E001E149F /* LaunchScreen.storyboard */; };
+		C77ED9451D1F9691001E149F /* SimpleNN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77ED9431D1F9691001E149F /* SimpleNN.cpp */; };
+		C77ED9491D1F97E7001E149F /* WrapperNN.mm in Sources */ = {isa = PBXBuildFile; fileRef = C77ED9481D1F97E7001E149F /* WrapperNN.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6E9AEA9EB40151E7E19B2CA0 /* Pods-OpenCVDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCVDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenCVDemo/Pods-OpenCVDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BE479FF8E10EE94DC61EC58C /* libPods-OpenCVDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OpenCVDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C157AEFF003694E1312A68CA /* Pods-OpenCVDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCVDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenCVDemo/Pods-OpenCVDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C77ED9251D1F934D001E149F /* OpenCVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77ED9281D1F934D001E149F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C77ED92A1D1F934E001E149F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C77ED92D1D1F934E001E149F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C77ED92F1D1F934E001E149F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C77ED9321D1F934E001E149F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C77ED9341D1F934E001E149F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C77ED9421D1F9691001E149F /* OpenCVDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCVDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		C77ED9431D1F9691001E149F /* SimpleNN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleNN.cpp; path = CppFiles/SimpleNN.cpp; sourceTree = "<group>"; };
+		C77ED9441D1F9691001E149F /* SimpleNN.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SimpleNN.hpp; path = CppFiles/SimpleNN.hpp; sourceTree = "<group>"; };
+		C77ED9471D1F97E7001E149F /* WrapperNN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WrapperNN.h; path = Wrappers/WrapperNN.h; sourceTree = "<group>"; };
+		C77ED9481D1F97E7001E149F /* WrapperNN.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WrapperNN.mm; path = Wrappers/WrapperNN.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C77ED9221D1F934D001E149F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3BD33750E416AD9D512C53B /* libPods-OpenCVDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2535101591B61BD9ECF0EA60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE479FF8E10EE94DC61EC58C /* libPods-OpenCVDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		480C0BEA06D9C3ECE5239A53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C157AEFF003694E1312A68CA /* Pods-OpenCVDemo.debug.xcconfig */,
+				6E9AEA9EB40151E7E19B2CA0 /* Pods-OpenCVDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C77ED91C1D1F934D001E149F = {
+			isa = PBXGroup;
+			children = (
+				C77ED9271D1F934D001E149F /* OpenCVDemo */,
+				C77ED9261D1F934D001E149F /* Products */,
+				480C0BEA06D9C3ECE5239A53 /* Pods */,
+				2535101591B61BD9ECF0EA60 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C77ED9261D1F934D001E149F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C77ED9251D1F934D001E149F /* OpenCVDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C77ED9271D1F934D001E149F /* OpenCVDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C77ED9281D1F934D001E149F /* AppDelegate.swift */,
+				C77ED92A1D1F934E001E149F /* ViewController.swift */,
+				C77ED92C1D1F934E001E149F /* Main.storyboard */,
+				C77ED92F1D1F934E001E149F /* Assets.xcassets */,
+				C77ED9311D1F934E001E149F /* LaunchScreen.storyboard */,
+				C77ED9341D1F934E001E149F /* Info.plist */,
+				C77ED94A1D1F97F3001E149F /* Wrappers */,
+				C77ED9461D1F9699001E149F /* CppFiles */,
+				C77ED9421D1F9691001E149F /* OpenCVDemo-Bridging-Header.h */,
+			);
+			path = OpenCVDemo;
+			sourceTree = "<group>";
+		};
+		C77ED9461D1F9699001E149F /* CppFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C77ED9431D1F9691001E149F /* SimpleNN.cpp */,
+				C77ED9441D1F9691001E149F /* SimpleNN.hpp */,
+			);
+			name = CppFiles;
+			sourceTree = "<group>";
+		};
+		C77ED94A1D1F97F3001E149F /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				C77ED9471D1F97E7001E149F /* WrapperNN.h */,
+				C77ED9481D1F97E7001E149F /* WrapperNN.mm */,
+			);
+			name = Wrappers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C77ED9241D1F934D001E149F /* OpenCVDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C77ED9371D1F934E001E149F /* Build configuration list for PBXNativeTarget "OpenCVDemo" */;
+			buildPhases = (
+				9A91F8D5739F3EAF0BFE8199 /* Check Pods Manifest.lock */,
+				C77ED9211D1F934D001E149F /* Sources */,
+				C77ED9221D1F934D001E149F /* Frameworks */,
+				C77ED9231D1F934D001E149F /* Resources */,
+				7D56A1E202DA2EE6EF8648E0 /* Embed Pods Frameworks */,
+				7C774C9390F6CDBE2563BC9B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenCVDemo;
+			productName = OpenCVDemo;
+			productReference = C77ED9251D1F934D001E149F /* OpenCVDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C77ED91D1D1F934D001E149F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = spe3d;
+				TargetAttributes = {
+					C77ED9241D1F934D001E149F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = C77ED9201D1F934D001E149F /* Build configuration list for PBXProject "OpenCVDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C77ED91C1D1F934D001E149F;
+			productRefGroup = C77ED9261D1F934D001E149F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C77ED9241D1F934D001E149F /* OpenCVDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C77ED9231D1F934D001E149F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C77ED9331D1F934E001E149F /* LaunchScreen.storyboard in Resources */,
+				C77ED9301D1F934E001E149F /* Assets.xcassets in Resources */,
+				C77ED92E1D1F934E001E149F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7C774C9390F6CDBE2563BC9B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenCVDemo/Pods-OpenCVDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D56A1E202DA2EE6EF8648E0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenCVDemo/Pods-OpenCVDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A91F8D5739F3EAF0BFE8199 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C77ED9211D1F934D001E149F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C77ED9451D1F9691001E149F /* SimpleNN.cpp in Sources */,
+				C77ED92B1D1F934E001E149F /* ViewController.swift in Sources */,
+				C77ED9291D1F934D001E149F /* AppDelegate.swift in Sources */,
+				C77ED9491D1F97E7001E149F /* WrapperNN.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C77ED92C1D1F934E001E149F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C77ED92D1D1F934E001E149F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C77ED9311D1F934E001E149F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C77ED9321D1F934E001E149F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C77ED9351D1F934E001E149F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C77ED9361D1F934E001E149F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C77ED9381D1F934E001E149F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C157AEFF003694E1312A68CA /* Pods-OpenCVDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = OpenCVDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spe3d.OpenCVDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCVDemo/OpenCVDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C77ED9391D1F934E001E149F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E9AEA9EB40151E7E19B2CA0 /* Pods-OpenCVDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = OpenCVDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.spe3d.OpenCVDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenCVDemo/OpenCVDemo-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C77ED9201D1F934D001E149F /* Build configuration list for PBXProject "OpenCVDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C77ED9351D1F934E001E149F /* Debug */,
+				C77ED9361D1F934E001E149F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C77ED9371D1F934E001E149F /* Build configuration list for PBXNativeTarget "OpenCVDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C77ED9381D1F934E001E149F /* Debug */,
+				C77ED9391D1F934E001E149F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C77ED91D1D1F934D001E149F /* Project object */;
+}
