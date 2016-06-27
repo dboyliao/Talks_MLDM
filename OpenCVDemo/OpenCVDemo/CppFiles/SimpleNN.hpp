@@ -22,13 +22,13 @@ using namespace cv;
 
 class SimpleNN {
 public:
-    SimpleNN();
+    SimpleNN(string modelPath);
     SimpleNN(vector<int> &nnStructure);
     
 public:
     void setLearnParams(double learning_rate, double random_range);
     void train(const Mat_<double> &train_X, const Mat_<double> &train_Y);
-    void predict(const Mat_<double> &test_X);
+    Mat_<double> predict(const Mat_<double> &test_X);
     void load(string model);
     void save(ofstream &fstream);
     vector<int> get_structure() const;

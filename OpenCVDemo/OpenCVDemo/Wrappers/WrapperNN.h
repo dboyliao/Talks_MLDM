@@ -12,5 +12,6 @@
 @interface WrapperNN : NSObject
 
 -(instancetype) initWithModelPath: (NSString *) model;
+-(instancetype) initWithStructure: (const NSInteger[]) structure lengthOfStructure:(int)length;
 
 @end

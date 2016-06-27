@@ -35,8 +35,24 @@ using namespace std;
     self = [super init];
     
     if (self) {
-        self.cppInstance = new SimpleNN();
-        self.cppInstance->load([modelPath cppStringFromNSString]);
+        self.cppInstance = new SimpleNN([modelPath cppStringFromNSString]);
+    }
+    
+    return self;
+}
+
+-(instancetype) initWithStructure:(const NSInteger[])structure lengthOfStructure:(int)length {
+    vector<int> nnStructure;
+    nnStructure.reserve(length);
+    
+    for (int index = 0; index < length; ++index){
+        nnStructure.push_back((int)structure[index]);
+    }
+    
+    self = [super init];
+    
+    if (self) {
+        self.cppInstance = new SimpleNN(nnStructure);
     }
     
     return self;
