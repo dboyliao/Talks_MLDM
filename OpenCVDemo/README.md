@@ -4,7 +4,8 @@
 
 
 Seriously, are you speaking ENGLISH?
-![what](readme_imgs/What.png)
+
+<img src=readme_imgs/What.png width=50% height=50% />
 
 
 To be specific and concrete, I'll use OpenCV and construct a neural network which can run on an iphone in this demo project.
