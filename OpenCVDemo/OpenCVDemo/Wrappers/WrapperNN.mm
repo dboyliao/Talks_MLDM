@@ -9,8 +9,10 @@
 #import "WrapperNN.h"
 #include "SimpleNN.hpp"
 #include <string>
+#include "opencv2/imgcodecs/ios.h"
 
 using namespace std;
+using namespace cv;
 
 @implementation NSString (Cpp)
 
@@ -41,21 +43,13 @@ using namespace std;
     return self;
 }
 
--(instancetype) initWithStructure:(const NSInteger[])structure lengthOfStructure:(int)length {
-    vector<int> nnStructure;
-    nnStructure.reserve(length);
+-(int) predict: (UIImage *)inputImage {
     
-    for (int index = 0; index < length; ++index){
-        nnStructure.push_back((int)structure[index]);
-    }
+    Mat_<uchar> image_mat;
+    UIImageToMat(inputImage, image_mat);
     
-    self = [super init];
+    return 0;
     
-    if (self) {
-        self.cppInstance = new SimpleNN(nnStructure);
-    }
-    
-    return self;
 }
 
 @end

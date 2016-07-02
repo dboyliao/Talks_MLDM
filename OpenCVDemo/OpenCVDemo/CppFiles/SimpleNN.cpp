@@ -52,9 +52,40 @@ SimpleNN::SimpleNN(vector<int> &nnStructure){
     this->random_range = 0.1;
 }
 
-void SimpleNN::load(string model){
+void SimpleNN::load(string modelfile){
     
-    cout << model << endl;
+    string descript_str;
+    int num_layers, layer_size;
+    vector<int> network_structure;
+    
+    ifstream model_stream(modelfile);
+    model_stream >> descript_str;
+    cout << descript_str << endl;
+    
+    model_stream >> num_layers;
+    network_structure.reserve(num_layers);
+    
+    for (int i = 0; i < num_layers; ++i){
+        model_stream >> layer_size;
+        network_structure.push_back(layer_size);
+    }
+    
+    this->weights.clear();
+    
+    for (int layer_index = 1; layer_index < num_layers; ++layer_index){
+        int m = network_structure[layer_index -1];
+        int n = network_structure[layer_index];
+        Mat_<double> weight(m, n, 0.0f);
+        double w;
+        
+        for (int row_index = 0; row_index < m; ++row_index){
+            for (int col_index = 0; col_index < n; ++col_index){
+                model_stream >> w;
+                weight(row_index, col_index) = w;
+            }
+        }
+        this->weights.push_back(weight);
+    }
 }
 
 void SimpleNN::setLearnParams(double learning_rate, double random_range){

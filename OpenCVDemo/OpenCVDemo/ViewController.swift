@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let structure:[Int] = [2, 5, 6, 5, 10]
-        self.cppWrapper = WrapperNN(structure: structure, lengthOfStructure: Int32(structure.count))
+        print("loading model.")
+        self.cppWrapper = WrapperNN(modelPath: "model.txt")
     }
 
     override func didReceiveMemoryWarning() {

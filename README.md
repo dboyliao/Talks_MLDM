@@ -6,7 +6,7 @@ This repo collects some talks (there is only one for now :p) I gave at MLDM Mond
 
 I hope you enjoy it.
 
-## Project Descriptions
+## Projects Description
 
 - `OpenCVDemo`: it is a demo project how to use opencv on iOS. This talk aims
                 to promote the idea about `Edge Computing`. In my use case, 
