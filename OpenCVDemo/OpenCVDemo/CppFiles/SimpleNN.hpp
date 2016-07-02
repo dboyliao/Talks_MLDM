@@ -3,7 +3,6 @@
 //  OpenCVDemo
 //
 //  Created by DboyLiao on 6/26/16.
-//  Copyright © 2016 spe3d. All rights reserved.
 //
 
 #ifndef SimpleNN_hpp
@@ -26,21 +25,25 @@ public:
     SimpleNN(vector<int> &nnStructure);
     
 public:
-    void setLearnParams(double learning_rate, double random_range);
-    void train(const Mat_<double> &train_X, const Mat_<double> &train_Y);
-    Mat_<double> predict(const Mat_<double> &test_X);
-    void load(string model);
-    void save(ofstream &fstream);
+    void setLearnParams(double learning_rate, double random_range, int num_iteration);
+    bool train(const Mat_<double> &train_X,
+               const Mat_<double> &train_Y,
+               string &err_msg);
+    bool predict(const Mat_<double> &test_X, Mat_<double> &result, string &err_msg);
+    void load(string modelfile);
+    void save(string modelfile)
     vector<int> get_structure() const;
     
 private:
     double learning_rate;
     double random_range;
+    int num_iteration;
     vector<Mat_<double> > weights;
     vector<Mat_<double> > layers;
     vector<int> structure;
 };
 
+Mat_<double> tanh(Mat_<double> inputMat);
 ostream& operator >>(ostream &os, const SimpleNN &nn);
 
 #endif /* SimpleNN_hpp */

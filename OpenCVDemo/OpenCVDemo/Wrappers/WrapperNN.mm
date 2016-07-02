@@ -3,7 +3,6 @@
 //  OpenCVDemo
 //
 //  Created by DboyLiao on 6/26/16.
-//  Copyright © 2016 spe3d. All rights reserved.
 //
 
 #import "WrapperNN.h"
