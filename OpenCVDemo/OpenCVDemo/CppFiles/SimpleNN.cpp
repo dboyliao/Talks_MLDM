@@ -58,41 +58,49 @@ SimpleNN::SimpleNN(vector<int> &nnStructure){
 
 void SimpleNN::load(string modelfile){
     
-    string descript_str;
-    int num_layers, layer_size;
-    vector<int> network_structure;
+    ifstream model(modelfile);
     
-    ifstream model_stream(modelfile);
-    model_stream >> descript_str;
-    cout << descript_str << endl; // NetworkStructure:
+    string title_str;
+    int num_of_layers, layer_size;
     
-    for (int i = 0; i < num_layers; ++i){
-        model_stream >> layer_size;
-        network_structure.push_back(layer_size);
+    model >> title_str;
+    cout << title_str << endl; // NumberOfLayers:
+    model >> num_of_layers;
+    cout << "num_of_layers: " << num_of_layers << endl;
+    
+    this->structure.clear();
+    this->structure.reserve(num_of_layers);
+    
+    model >> title_str;
+    cout << title_str << endl; // NetworkStructure:
+    
+    for (int i = 0; i < num_of_layers; ++i){
+        model>> layer_size;
+        cout << i << "-th layer size: " << layer_size << endl;
+        this->structure.push_back(layer_size);
     }
     
-    model_stream >> descript_str;
-    cout << descript_str << endl; // NumberOfLayers:
-    model_stream >> num_layers;
-    network_structure.reserve(num_layers);
-    
-    
     this->weights.clear();
+    this->weights.reserve(num_of_layers - 1);
     
-    for (int layer_index = 1; layer_index < num_layers; ++layer_index){
-        int m = network_structure[layer_index -1] + 1; // add one for the bias term.
-        int n = network_structure[layer_index];
-        Mat_<double> weight(m, n, 0.0f);
-        double w;
+    for (int layer_id = 1; layer_id < num_of_layers; ++layer_id){
+        int m = this->structure[layer_id-1] + 1;
+        int n = this->structure[layer_id];
         
+        Mat_<double> weight(m, n, 0.0f);
         for (int row_index = 0; row_index < m; ++row_index){
             for (int col_index = 0; col_index < n; ++col_index){
-                model_stream >> w;
+                double w;
+                model >> w;
                 weight(row_index, col_index) = w;
             }
         }
+        cout << "weight shape: " << weight.rows << "x" << weight.cols << endl;
         this->weights.push_back(weight);
     }
+    
+    model.close();
+    
     cout << "loading complete" << endl;
 }
 
@@ -162,6 +170,7 @@ bool SimpleNN::train(const Mat_<double> &train_X,
         // back-propagation with Stochastic Gradient Descend.
         int rand_index = rand() % N;
         Mat_<double> one_sample = train_X.row(rand_index).reshape(0, 1); // make it a column vector.
+        Mat_<double> one_target = train_Y.row(rand_index).reshape(0, 1);
         
         Mat_<double> output;
         string err_msg;
@@ -169,7 +178,7 @@ bool SimpleNN::train(const Mat_<double> &train_X,
             cerr << err_msg << endl;
             return false;
         } else {
-            deltas[this->weights.size() - 1] = 2.0*(output - this->layers[this->weights.size()-1]);
+            deltas[this->weights.size() - 1] = 2.0*(one_target - output);
         }
     }
     

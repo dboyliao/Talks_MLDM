@@ -49,8 +49,9 @@ def main(nnStructure):
     nn.train(train_X, train_Y)
 
     with open("model.txt", "w") as wf:
-        wf.write("NetworkStructure: {}\n".format(" ".join(map(str, nn.struct))))
+
         wf.write("NumberOfLayers: {}\n".format(len(nn.layers)))
+        wf.write("NetworkStructure: {}\n".format(" ".join(map(str, nn.struct))))
 
         for weight in nn.weights[1:]:
             wf.write(" ".join(map(str, weight.flatten())) + "\n")
@@ -65,7 +66,7 @@ def network_structure_type(arg_str):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-s", "--structure", default = "784,1400,700,2", 
+    parser.add_argument("-s", "--structure", default = "784,1400,700,2",
                         help = "the network structure. ex: 2,10,2 (a 2x10x2 network)",
                         type = network_structure_type,
                         dest = "structure")
