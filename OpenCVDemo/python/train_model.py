@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--structure", default = "784,1400,700,2",
-                        help = "the network structure. ex: 2,10,2 (a 2x10x2 network)",
+                        help = "the network structure. ex: 784,1400,700,2 (a 784x1400x700x2 network, default)",
                         type = network_structure_type,
                         dest = "structure")
 

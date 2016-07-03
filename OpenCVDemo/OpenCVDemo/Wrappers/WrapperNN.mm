@@ -25,7 +25,7 @@ using namespace cv;
 
 @interface WrapperNN ()
 
-@property SimpleNN* cppInstance;
+@property SimpleNN* network;
 
 @end
 
@@ -36,18 +36,34 @@ using namespace cv;
     self = [super init];
     
     if (self) {
-        self.cppInstance = new SimpleNN([modelPath cppStringFromNSString]);
+        self.network = new SimpleNN([modelPath cppStringFromNSString]);
     }
     
     return self;
 }
 
 -(int) predict: (UIImage *)inputImage {
-    
     Mat_<uchar> image_mat;
+    Mat_<double> input, prediction;
     UIImageToMat(inputImage, image_mat);
     
-    return 0;
+    if (image_mat.channels() > 1){
+        // convert to grayscale
+        cvtColor(image_mat, image_mat, CV_BGR2GRAY);
+    }
+    
+    input = Mat_<double>(image_mat);
+    string err_msg;
+    if (!self.network->predict(input, prediction, err_msg)){
+        cerr << "prediciton fail" << endl;
+        cerr << err_msg << endl;
+    }
+    
+    if (prediction(0, 0) >= prediction(0, 1)){
+        return 0;
+    }
+    
+    return 1;
     
 }
 

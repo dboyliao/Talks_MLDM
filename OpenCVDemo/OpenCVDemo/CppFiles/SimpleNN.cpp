@@ -191,12 +191,15 @@ bool SimpleNN::predict(const Mat_<double> &test_X, Mat_<double> &result, string 
     
     Mat_<double> input_data = test_X.reshape(0, 1);
     
-    if (input_data.rows != this->structure[0]){
+    if (input_data.rows != this->structure[0] - 1){
         err_msg = "wrong input size";
         return false;
     }
     
-    this->layers[0] = input_data;
+    for (int row_index = 1; row_index < this->layers[0].rows; ++row_index){
+        this->layers[0](row_index, 0) = input_data(row_index-1, 0);
+    }
+
     int num_layers = (int) this->layers.size();
     
     for (int layer_id = 0; layer_id < num_layers - 1; ++layer_id){

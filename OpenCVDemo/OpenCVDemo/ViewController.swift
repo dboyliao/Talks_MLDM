@@ -7,9 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var cppWrapper:WrapperNN?
+    @IBOutlet weak var imageView:UIImageView!
+    @IBOutlet weak var textField:UITextField!
+    @IBOutlet weak var pickButton:UIButton!
+    @IBOutlet weak var predictButton:UIButton!
+    
+    var cppWrapper:WrapperNN!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +28,38 @@ class ViewController: UIViewController {
             print("model file not found....")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func pressButton(sender:UIButton!){
+        
+        switch sender {
+        case self.pickButton:
+            let nextVC = UIImagePickerController()
+            nextVC.sourceType = .PhotoLibrary
+            nextVC.delegate = self
+            self.presentViewController(nextVC, animated: true, completion: nil)
+            
+        case self.predictButton:
+            if let image = self.imageView.image, wrapper = self.cppWrapper {
+                print("predict! (nn)")
+                let i = wrapper.predict(image)
+                
+                if i == 0 {
+                    self.textField.text = "It's a 0"
+                } else {
+                    self.textField.text = "It's a 1"
+                }
+            }
+        default:
+            break
+        }
+        
     }
-
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        self.imageView.image = image;
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }
 
