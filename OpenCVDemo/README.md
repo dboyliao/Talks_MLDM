@@ -1,22 +1,35 @@
-# OpenCV on iOS - A Simple Demo on Edge Computing
+# OpenCV on iOS
+## A Simple Demo on Edge Computing
 
 `Edge Computing`, according to the definition from [wiki](https://en.wikipedia.org/wiki/Edge_computing), is "pushing the frontier of computing applications, data, and services away from centralized nodes to the logical extremes of a network".
 
-
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
 Seriously, are you speaking ENGLISH?
 
 <img src=readme_imgs/What.png width=50% height=50% />
 
-
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
 Maybe a picture explain more than words......(really?)
 
 ![amd-edge](http://eecatalog.com/medical/files/2015/04/amd11.jpg)
 
+
 To be specific and concrete, I'll use OpenCV and construct a neural network which can run on an iphone in this demo project.
 
-I'll show you how to make good use of (a.k.a mess up) `C++`, `Obj-C++` and `Swift` working hand in hand (I lied) in one project.
 
-## Prerequisite
+I'll show you how to make good use of (a.k.a mess up) `C++`, `Obj-C++` and `Swift` and have them work hand in hand (I lied) in one project.
+
+## Prerequisites
 
 - `pod`: a framework manager for iOS project.
 - `XCode`
@@ -69,6 +82,16 @@ Then, our strategy is simple:
 
 Well, it sounds like extra workload.
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 **Yes, it is.....**
 
