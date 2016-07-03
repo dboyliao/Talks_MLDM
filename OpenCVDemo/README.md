@@ -107,3 +107,13 @@ Well, it sounds like extra workload.
 
 - [Simple NN (Python implementation)](https://gist.github.com/dboyliao/25946484846aa3724f57)
 - [My Talk at CocoaHeadsTaipei (EdgeMe project)](https://github.com/dboyliao/Talks_CocoaHeads/tree/master/EdgeMe)
+
+# Info
+
+We are hiring!
+- iOS developer
+- Android developer
+- Unity developer
+- Backend engineer / RD
+
+[Contact Us](http://www.spe3d.co)
