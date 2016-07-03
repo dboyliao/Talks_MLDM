@@ -80,6 +80,21 @@ void SimpleNN::load(string modelfile){
         this->structure.push_back(layer_size);
     }
     
+    // setup layers (except output layer)
+    this->layers.clear();
+    for (int layer_id = 0; layer_id < num_of_layers - 1; ++layer_id){
+        int n = this->structure[layer_id] + 1;
+        Mat_<double> one_layer(n, 1, 0.0f);
+        this->layers.push_back(one_layer);
+    }
+    
+    // setup output layer
+    {
+        int n = this->structure[num_of_layers-1];
+        Mat_<double> output_layer(n, 1, 0.0f);
+        this->layers.push_back(output_layer);
+    }
+    
     this->weights.clear();
     this->weights.reserve(num_of_layers - 1);
     
@@ -87,9 +102,9 @@ void SimpleNN::load(string modelfile){
         int m = this->structure[layer_id-1] + 1;
         int n = this->structure[layer_id];
         
-        Mat_<double> weight(m, n, 0.0f);
-        for (int row_index = 0; row_index < m; ++row_index){
-            for (int col_index = 0; col_index < n; ++col_index){
+        Mat_<double> weight(n, m, 0.0f);
+        for (int row_index = 0; row_index < n; ++row_index){
+            for (int col_index = 0; col_index < m; ++col_index){
                 double w;
                 model >> w;
                 weight(row_index, col_index) = w;
@@ -132,10 +147,7 @@ void SimpleNN::setLearnParams(double learning_rate, double random_range, int num
     this->num_iteration = num_iteration;
 }
 
-vector<int> SimpleNN::get_structure() const {
-    return this->structure;
-}
-
+// MARK: implement not complete yet.
 bool SimpleNN::train(const Mat_<double> &train_X,
                      const Mat_<double> &train_Y,
                      string &err_msg)
@@ -189,9 +201,9 @@ bool SimpleNN::train(const Mat_<double> &train_X,
 
 bool SimpleNN::predict(const Mat_<double> &test_X, Mat_<double> &result, string &err_msg){
     
-    Mat_<double> input_data = test_X.reshape(0, 1);
+    Mat_<double> input_data = test_X.reshape(0, test_X.rows*test_X.cols); // make it column vector
     
-    if (input_data.rows != this->structure[0] - 1){
+    if (input_data.rows != this->structure[0]){
         err_msg = "wrong input size";
         return false;
     }
@@ -202,14 +214,23 @@ bool SimpleNN::predict(const Mat_<double> &test_X, Mat_<double> &result, string 
 
     int num_layers = (int) this->layers.size();
     
-    for (int layer_id = 0; layer_id < num_layers - 1; ++layer_id){
-        this->layers[layer_id+1] = tanh(this->weights[layer_id]*this->layers[layer_id]);
+    for (int layer_id = 0; layer_id < num_layers - 2; ++layer_id){
+        Mat_<double> product = tanh(this->weights[layer_id]*this->layers[layer_id]);
+        
+        for (int row_index = 1; row_index < this->layers[layer_id+1].rows; ++row_index){
+            this->layers[layer_id+1](row_index, 0) = product(row_index-1, 0);
+        }
     }
     
-    result = Mat_<double>(this->layers[num_layers-1].rows - 1, 1, 0.0f);
-    for (int row_index = 0; row_index < result.rows; ++row_index){
-        result(row_index, 0) = this->layers[num_layers - 1](row_index+1, 0);
+    // compute the output layer
+    {
+        int layer_id = num_layers - 2;
+        this->layers[layer_id + 1] = tanh(this->weights[layer_id] * this->layers[layer_id]);
     }
+    
+    result = this->layers[num_layers - 1]; // return last layers (output layer).
+    cout << "result:\n" << result << endl;
+    
     err_msg = "";
     
     return true;
@@ -223,6 +244,18 @@ Mat_<double> tanh(Mat_<double> inputMat){
     Mat_<double> result(inputMat.rows, inputMat.cols, 0.0f);
     cv::divide(expx - expmx, expx + expmx, result);
     return result;
+}
+
+vector<int> SimpleNN::get_structure() const {
+    return this->structure;
+}
+
+vector<Mat_<double> > SimpleNN::get_weights() const {
+    return this->weights;
+}
+
+vector<Mat_<double> > SimpleNN::get_layers() const {
+    return this->layers;
 }
 
 ostream& operator >> (ostream &os, const SimpleNN &nn){

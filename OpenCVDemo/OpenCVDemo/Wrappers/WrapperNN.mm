@@ -52,11 +52,11 @@ using namespace cv;
         cvtColor(image_mat, image_mat, CV_BGR2GRAY);
     }
     
-    input = Mat_<double>(image_mat);
+    input = Mat_<double>(image_mat).reshape(0, image_mat.rows * image_mat.cols);
     string err_msg;
     if (!self.network->predict(input, prediction, err_msg)){
-        cerr << "prediciton fail" << endl;
         cerr << err_msg << endl;
+        return -1;
     }
     
     if (prediction(0, 0) >= prediction(0, 1)){
@@ -65,6 +65,32 @@ using namespace cv;
     
     return 1;
     
+}
+
+-(void) debug {
+    vector<int> structure = self.network->get_structure();
+    vector<Mat_<double> > layers = self.network->get_layers();
+    vector<Mat_<double> > weights = self.network->get_weights();
+    
+    cout << "Network Structure:" << endl;
+    for (int index = 0; index < structure.size(); ++index){
+        cout << structure[index] << " ";
+    }
+    cout << endl;
+    
+    cout << "layers size:" << endl;
+    for (int index = 0; index < layers.size(); ++index){
+        cout << index << ": "
+             << layers[index].rows << "x" << layers[index].cols
+             << endl;
+    }
+    
+    cout << "weights size:" << endl;
+    for (int index = 0; index < weights.size(); ++index){
+        cout << index << ": "
+             << weights[index].rows << "x" << weights[index].cols
+             << endl;
+    }
 }
 
 @end

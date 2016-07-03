@@ -43,6 +43,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiZ-zQ-83p">
+                                <rect key="frame" x="278" y="550" width="44" height="30"/>
+                                <state key="normal" title="debug"/>
+                                <connections>
+                                    <action selector="debug" destination="BYZ-38-t0r" eventType="touchUpInside" id="obX-Gf-gVf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

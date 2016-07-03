@@ -43,10 +43,10 @@ def get_train_data(label_file, image_dir, num_samples = 1000):
 
 
 def main(nnStructure):
-    train_X, train_Y = get_train_data("labels.csv", "train_images", 500)
+    train_X, train_Y = get_train_data("labels.csv", "train_images", 3000)
     nn = NeuralNetwork(nnStructure)
     print("training {}".format(nn))
-    nn.train(train_X, train_Y)
+    nn.train(train_X, train_Y, 5000)
 
     with open("model.txt", "w") as wf:
 

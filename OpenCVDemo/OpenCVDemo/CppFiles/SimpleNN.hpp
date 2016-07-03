@@ -33,7 +33,9 @@ public:
     void load(string modelfile);
     void save(string modelfile);
     vector<int> get_structure() const;
-    
+    vector<Mat_<double> > get_weights() const;
+    vector<Mat_<double> > get_layers() const;
+
 private:
     double learning_rate;
     double random_range;

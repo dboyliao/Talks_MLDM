@@ -45,8 +45,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 if i == 0 {
                     self.textField.text = "It's a 0"
-                } else {
+                } else if i > 0 {
                     self.textField.text = "It's a 1"
+                } else {
+                    self.textField.text = "error!"
                 }
             }
         default:
@@ -55,9 +57,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    @IBAction func debug(){
+        self.cppWrapper.debug()
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
         self.imageView.image = image;
+        self.textField.text = "";
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
 

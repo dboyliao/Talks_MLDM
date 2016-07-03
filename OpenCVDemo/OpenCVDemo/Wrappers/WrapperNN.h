@@ -12,5 +12,6 @@
 
 -(instancetype) initWithModelPath: (NSString *) model;
 -(int) predict: (UIImage *) inputImage;
+-(void) debug;
 
 @end
