@@ -66,15 +66,16 @@ void SimpleNN::load(string modelfile){
     model_stream >> descript_str;
     cout << descript_str << endl; // NetworkStructure:
     
+    for (int i = 0; i < num_layers; ++i){
+        model_stream >> layer_size;
+        network_structure.push_back(layer_size);
+    }
+    
     model_stream >> descript_str;
     cout << descript_str << endl; // NumberOfLayers:
     model_stream >> num_layers;
     network_structure.reserve(num_layers);
     
-    for (int i = 0; i < num_layers; ++i){
-        model_stream >> layer_size;
-        network_structure.push_back(layer_size);
-    }
     
     this->weights.clear();
     
@@ -92,6 +93,7 @@ void SimpleNN::load(string modelfile){
         }
         this->weights.push_back(weight);
     }
+    cout << "loading complete" << endl;
 }
 
 void SimpleNN::save(string modelfile){
@@ -150,7 +152,7 @@ bool SimpleNN::train(const Mat_<double> &train_X,
     }
     
     srand((unsigned int) time(NULL));
-    vectotr<Mat_<double> > deltas(this->weights.size());
+    vector<Mat_<double> > deltas(this->weights.size());
     
     for (int iter_index = 0; iter_index < this->num_iteration; ++iter_index){
         if (iter_index % 100 == 0 && iter_index > 0){
@@ -160,9 +162,15 @@ bool SimpleNN::train(const Mat_<double> &train_X,
         // back-propagation with Stochastic Gradient Descend.
         int rand_index = rand() % N;
         Mat_<double> one_sample = train_X.row(rand_index).reshape(0, 1); // make it a column vector.
-        Mat_<double> output = this->predict(one_sample);
         
-        deltas[this->weights.size() - 1] = 2.0*(output - this->layers[this->weights.size()-1]);
+        Mat_<double> output;
+        string err_msg;
+        if (!this->predict(one_sample, output, err_msg)){
+            cerr << err_msg << endl;
+            return false;
+        } else {
+            deltas[this->weights.size() - 1] = 2.0*(output - this->layers[this->weights.size()-1]);
+        }
     }
     
     err_msg = "";

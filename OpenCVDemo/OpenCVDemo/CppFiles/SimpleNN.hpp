@@ -31,7 +31,7 @@ public:
                string &err_msg);
     bool predict(const Mat_<double> &test_X, Mat_<double> &result, string &err_msg);
     void load(string modelfile);
-    void save(string modelfile)
+    void save(string modelfile);
     vector<int> get_structure() const;
     
 private:

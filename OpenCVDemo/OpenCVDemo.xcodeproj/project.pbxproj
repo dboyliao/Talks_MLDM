@@ -15,6 +15,7 @@
 		C77ED9331D1F934E001E149F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77ED9311D1F934E001E149F /* LaunchScreen.storyboard */; };
 		C77ED9451D1F9691001E149F /* SimpleNN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77ED9431D1F9691001E149F /* SimpleNN.cpp */; };
 		C77ED9491D1F97E7001E149F /* WrapperNN.mm in Sources */ = {isa = PBXBuildFile; fileRef = C77ED9481D1F97E7001E149F /* WrapperNN.mm */; };
+		C7E8A7021D28EFA00000D8FE /* model.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7E8A7011D28EFA00000D8FE /* model.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		C77ED9441D1F9691001E149F /* SimpleNN.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SimpleNN.hpp; path = CppFiles/SimpleNN.hpp; sourceTree = "<group>"; };
 		C77ED9471D1F97E7001E149F /* WrapperNN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WrapperNN.h; path = Wrappers/WrapperNN.h; sourceTree = "<group>"; };
 		C77ED9481D1F97E7001E149F /* WrapperNN.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WrapperNN.mm; path = Wrappers/WrapperNN.mm; sourceTree = "<group>"; };
+		C7E8A7011D28EFA00000D8FE /* model.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = model.txt; path = SupportFiles/model.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				C77ED92F1D1F934E001E149F /* Assets.xcassets */,
 				C77ED9311D1F934E001E149F /* LaunchScreen.storyboard */,
 				C77ED9341D1F934E001E149F /* Info.plist */,
+				C7E8A7031D28EFC90000D8FE /* SupportFiles */,
 				C77ED94A1D1F97F3001E149F /* Wrappers */,
 				C77ED9461D1F9699001E149F /* CppFiles */,
 				C77ED9421D1F9691001E149F /* OpenCVDemo-Bridging-Header.h */,
@@ -114,6 +117,14 @@
 				C77ED9481D1F97E7001E149F /* WrapperNN.mm */,
 			);
 			name = Wrappers;
+			sourceTree = "<group>";
+		};
+		C7E8A7031D28EFC90000D8FE /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C7E8A7011D28EFA00000D8FE /* model.txt */,
+			);
+			name = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E8A7021D28EFA00000D8FE /* model.txt in Resources */,
 				C77ED9331D1F934E001E149F /* LaunchScreen.storyboard in Resources */,
 				C77ED9301D1F934E001E149F /* Assets.xcassets in Resources */,
 				C77ED92E1D1F934E001E149F /* Main.storyboard in Resources */,

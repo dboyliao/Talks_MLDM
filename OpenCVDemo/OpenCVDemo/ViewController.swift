@@ -16,7 +16,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         print("loading model.")
-        self.cppWrapper = WrapperNN(modelPath: "model.txt")
+        if let model_path = NSBundle.mainBundle().pathForResource("model", ofType: "txt") {
+            print("model file found: \(model_path)")
+            self.cppWrapper = WrapperNN(modelPath: model_path)
+        } else {
+            print("model file not found....")
+        }
     }
 
     override func didReceiveMemoryWarning() {
