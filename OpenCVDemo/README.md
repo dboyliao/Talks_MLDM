@@ -70,11 +70,12 @@ Good question and I have a good answer, too.
 
 ## How It Works
 
-OK, there are few facts:
+OK, few things to keep in mind:
 
 - `Obj-C` knows how to read `C++`. (`Obj-C++`, to be specific)
 - `Swift` knows how to read `Obj-C`.
 - `Swift` knows NOTHING abut `C++`. (Do not show `C++` code to `swiftc`)
+
 
 Then, our strategy is simple:
 
@@ -97,10 +98,22 @@ Well, it sounds like extra workload.
 
 ![down](https://animacounselling.files.wordpress.com/2014/07/davanti-counselling-slump.jpg)
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 ## Summary
 
 ![attackOnTitan](readme_imgs/attack_on_titan.jpg)
+
+
+## Big News
+
+- [TensorFlow is now on iOS](http://www.theverge.com/2016/6/8/11885924/google-tensorflow-release-ios-magenta-neural-network)
+- [BNNS by Apple](https://developer.apple.com/videos/play/wwdc2016/715/)
 
 
 ## External Material
@@ -108,12 +121,14 @@ Well, it sounds like extra workload.
 - [Simple NN (Python implementation)](https://gist.github.com/dboyliao/25946484846aa3724f57)
 - [My Talk at CocoaHeadsTaipei (EdgeMe project)](https://github.com/dboyliao/Talks_CocoaHeads/tree/master/EdgeMe)
 
+
 # Info
 
 We are hiring!
+
+- **Android developer!!**
 - iOS developer
-- Android developer
 - Unity developer
-- Backend engineer / RD
+- Backend engineer / R&D
 
 [Contact Us](http://www.spe3d.co)
