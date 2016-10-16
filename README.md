@@ -8,8 +8,12 @@ I hope you enjoy it.
 
 ## Projects Description
 
-- `OpenCVDemo`: it is a demo project how to use opencv on iOS. This talk aims
+- `OpenCVDemo`: It is a demo project how to use opencv on iOS. This talk aims
                 to promote the idea about `Edge Computing`. In my use case, 
                 you can do machine learning on mobile device with the help of 
                 `OpenCV`. In this demo project, I implement a simple neural 
                 network which can be used to solve classification problem.
+
+- `Python_Metaclass_In_Practice`: In this talk, I try to demo how metaclass can
+                be used to reduce repetitive code in your project and hence make
+                your code not only looks better but also improve its readibility. 
